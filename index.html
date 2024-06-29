@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header>
+        <!--Let's start by adding a nice title to the calculator and a link to the website-->
+        <h1 id="title">Calculator</h1>
+        <a href="https://alangeirnaert.com" target="_blank" id="website-link">D'you want to see more ?</a>
+    </header>
+
+    <main>
+        <!--This is where the calculator will be-->
+        <!--It will need to be at the top of the page, so we can put a legend right below-->
+        <div id="container">
+            <div id="result-container">
+                <div class="result">
+                    <p class="res-container"></p>
+                </div>
+            </div>
+            <div id="numbers-container">
+                <ul class="numbers">
+                    <li data-key="97" class="key">1</li>
+                    <li data-key="98" class="key">2</li>
+                    <li data-key="99" class="key">3</li>
+                    <li data-key="107" class="key">+</li>
+                    <li data-key="100" class="key">4</li>
+                    <li data-key="101" class="key">5</li>
+                    <li data-key="102" class="key">6</li>
+                    <li data-key="109" class="key">-</li>
+                    <li data-key="103" class="key">7</li>
+                    <li data-key="104" class="key">8</li>
+                    <li data-key="105" class="key">9</li>
+                    <li data-key="106" class="key">*</li>
+                    <li data-key="" class="key">DEL</li>
+                    <li data-key="96" class="key">0</li>
+                    <li data-key="" class="key">AC</li>
+                    <li data-key="111" class="key">/</li>
+                    <li data-key="" style="margin-bottom: 0; width: 18%;" class="key">n²</li>
+                    <li data-key="" style="margin-bottom: 0; width: 18%;" class="key">√n</li>
+                    <li data-key="53" style="margin-bottom: 0; width: 18%;" class="key">%</li>
+                    <li data-key="13" style="margin-bottom: 0; width: 36%;" class="key">Enter</li>
+                </ul>
+            </div>
+        </div>
+
+        <audio src="calc.wav"></audio>
+
+    </main>
+
+    <footer>
+        <p>@ 2024 Calculator - All rights reserved</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
