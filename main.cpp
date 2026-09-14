@@ -80,8 +80,6 @@ double select_second_number(Operator operator_choice)
 
         return number;
     }
-
-    return number;
 }
 
 double select_first_number()
