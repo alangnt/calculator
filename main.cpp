@@ -120,12 +120,13 @@ int main()
     while (true)
     {
 
-        double first_number = select_first_number();
-        Operator operator_choice = select_operator();
-        double second_number = select_second_number(operator_choice);
+        const double first_number = select_first_number();
+        const Operator operator_choice = select_operator();
+        const double second_number = select_second_number(operator_choice);
 
-        std::cout << "Result: " << calculate(first_number, second_number, operator_choice) << "\n"
-                  << std::endl;
+        std::cout << "Result: "
+                  << calculate(first_number, second_number, operator_choice)
+                  << "\n\n";
 
         if (!prompt_to_continue())
         {
