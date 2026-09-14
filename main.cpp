@@ -1,7 +1,8 @@
 #include <iostream>
 #include <limits>
+#include <stdexcept>
 
-constexpr double calculate(double a, double b, char operator_choice) noexcept
+double calculate(double a, double b, char operator_choice)
 {
     switch (operator_choice)
     {
@@ -14,7 +15,7 @@ constexpr double calculate(double a, double b, char operator_choice) noexcept
     case '/':
         return a / b;
     default:
-        return 0;
+        throw std::invalid_argument("Invalid operator");
     }
 }
 
@@ -45,21 +46,22 @@ double select_second_number(char operator_choice)
     while (true)
     {
         std::cout << "Enter second number: ";
-        if (std::cin >> number && (operator_choice != '/' || number != 0))
+
+        if (!(std::cin >> number))
         {
-            break;
+            std::cout << "Invalid input. Try again.\n";
+            std::cin.clear();
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            continue;
         }
 
         if (operator_choice == '/' && number == 0)
         {
             std::cout << "Cannot divide by zero. Try again.\n";
+            continue;
         }
-        else
-        {
-            std::cout << "Invalid input. Try again.\n";
-        }
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+        return number;
     }
 
     return number;
