@@ -10,9 +10,9 @@ enum class Operator : char
     Divide = '/'
 };
 
-double calculate(double a, double b, Operator operator_choice)
+double calculate(double a, double b, Operator operation)
 {
-    switch (operator_choice)
+    switch (operation)
     {
     case Operator::Add:
         return a + b;
