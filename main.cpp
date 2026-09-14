@@ -113,9 +113,9 @@ bool prompt_to_continue()
 
 int main()
 {
-    std::cout << "====================" << std::endl;
-    std::cout << "Simple Calculator 🧮" << std::endl;
-    std::cout << "====================" << std::endl;
+    std::cout << "====================\n";
+    std::cout << "Simple Calculator 🧮\n";
+    std::cout << "====================\n";
 
     while (true)
     {
