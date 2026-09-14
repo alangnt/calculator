@@ -2,12 +2,12 @@
 #include <limits>
 #include <stdexcept>
 
-enum class Operator
+enum class Operator : char
 {
-    Add,
-    Subtract,
-    Multiply,
-    Divide
+    Add = '+',
+    Subtract = '-',
+    Multiply = '*',
+    Divide = '/'
 };
 
 double calculate(double a, double b, Operator operator_choice)
@@ -29,25 +29,19 @@ double calculate(double a, double b, Operator operator_choice)
 
 Operator select_operator()
 {
-    char operator_choice;
+    char input;
 
     while (true)
     {
         std::cout << "Enter operator (+, -, *, /): ";
 
-        if (std::cin >> operator_choice)
+        if (std::cin >> input &&
+            (input == '+' ||
+             input == '-' ||
+             input == '*' ||
+             input == '/'))
         {
-            switch (operator_choice)
-            {
-            case '+':
-                return Operator::Add;
-            case '-':
-                return Operator::Subtract;
-            case '*':
-                return Operator::Multiply;
-            case '/':
-                return Operator::Divide;
-            }
+            return static_cast<Operator>(input);
         }
 
         std::cout << "Invalid input. Try again.\n";
