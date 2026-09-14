@@ -1,5 +1,6 @@
 #include <iostream>
 #include <limits>
+#include <stdexcept>
 
 enum class Operator
 {
@@ -21,6 +22,8 @@ double calculate(double a, double b, Operator operator_choice)
         return a * b;
     case Operator::Divide:
         return a / b;
+    default:
+        throw std::invalid_argument("Invalid operator");
     }
 }
 
