@@ -90,11 +90,7 @@ bool prompt_to_continue()
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 
-    if (continue_choice == 'y')
-    {
-        return true;
-    }
-    return false;
+    return continue_choice == 'y';
 }
 
 int main()
