@@ -50,7 +50,7 @@ Operator select_operator()
     }
 }
 
-double select_second_number(Operator operator_choice)
+double select_second_number(Operator operation)
 {
     double number;
 
@@ -66,7 +66,7 @@ double select_second_number(Operator operator_choice)
             continue;
         }
 
-        if (operator_choice == Operator::Divide && number == 0)
+        if (operation == Operator::Divide && number == 0)
         {
             std::cout << "Cannot divide by zero. Try again.\n";
             continue;
@@ -121,11 +121,11 @@ int main()
     {
 
         const double first_number = select_first_number();
-        const Operator operator_choice = select_operator();
-        const double second_number = select_second_number(operator_choice);
+        const Operator operation = select_operator();
+        const double second_number = select_second_number(operation);
 
         std::cout << "Result: "
-                  << calculate(first_number, second_number, operator_choice)
+                  << calculate(first_number, second_number, operation)
                   << "\n\n";
 
         if (!prompt_to_continue())
