@@ -1,7 +1,7 @@
 #include <iostream>
 #include <limits>
 
-constexpr float calculate(float a, float b, char operator_choice) noexcept
+constexpr double calculate(double a, double b, char operator_choice) noexcept
 {
     switch (operator_choice)
     {
@@ -38,9 +38,9 @@ char select_operator()
     return operator_choice;
 }
 
-float select_second_number(char operator_choice)
+double select_second_number(char operator_choice)
 {
-    float number;
+    double number;
 
     while (true)
     {
@@ -65,9 +65,9 @@ float select_second_number(char operator_choice)
     return number;
 }
 
-float select_first_number()
+double select_first_number()
 {
-    float number;
+    double number;
 
     std::cout << "Enter first number: ";
     while (!(std::cin >> number))
@@ -109,9 +109,9 @@ int main()
     while (true)
     {
 
-        float first_number = select_first_number();
+        double first_number = select_first_number();
         char operator_choice = select_operator();
-        float second_number = select_second_number(operator_choice);
+        double second_number = select_second_number(operator_choice);
 
         std::cout << "Result: " << calculate(first_number, second_number, operator_choice) << "\n"
                   << std::endl;
