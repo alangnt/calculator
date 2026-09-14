@@ -1,45 +1,59 @@
 #include <iostream>
 #include <limits>
-#include <stdexcept>
 
-double calculate(double a, double b, char operator_choice)
+enum class Operator
+{
+    Add,
+    Subtract,
+    Multiply,
+    Divide
+};
+
+double calculate(double a, double b, Operator operator_choice)
 {
     switch (operator_choice)
     {
-    case '+':
+    case Operator::Add:
         return a + b;
-    case '-':
+    case Operator::Subtract:
         return a - b;
-    case '*':
+    case Operator::Multiply:
         return a * b;
-    case '/':
+    case Operator::Divide:
         return a / b;
-    default:
-        throw std::invalid_argument("Invalid operator");
     }
 }
 
-char select_operator()
+Operator select_operator()
 {
     char operator_choice;
 
     while (true)
     {
         std::cout << "Enter operator (+, -, *, /): ";
-        if (std::cin >> operator_choice && (operator_choice == '+' || operator_choice == '-' || operator_choice == '*' || operator_choice == '/'))
+
+        if (std::cin >> operator_choice)
         {
-            break;
+            switch (operator_choice)
+            {
+            case '+':
+                return Operator::Add;
+            case '-':
+                return Operator::Subtract;
+            case '*':
+                return Operator::Multiply;
+            case '/':
+                return Operator::Divide;
+            }
         }
 
         std::cout << "Invalid input. Try again.\n";
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
-
-    return operator_choice;
 }
 
-double select_second_number(char operator_choice)
+double select_second_number(Operator operator_choice)
 {
     double number;
 
@@ -55,7 +69,7 @@ double select_second_number(char operator_choice)
             continue;
         }
 
-        if (operator_choice == '/' && number == 0)
+        if (operator_choice == Operator::Divide && number == 0)
         {
             std::cout << "Cannot divide by zero. Try again.\n";
             continue;
@@ -112,7 +126,7 @@ int main()
     {
 
         double first_number = select_first_number();
-        char operator_choice = select_operator();
+        Operator operator_choice = select_operator();
         double second_number = select_second_number(operator_choice);
 
         std::cout << "Result: " << calculate(first_number, second_number, operator_choice) << "\n"
