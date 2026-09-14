@@ -50,7 +50,14 @@ float select_second_number(char operator_choice)
             break;
         }
 
-        std::cout << "Invalid input. Try again.\n";
+        if (operator_choice == '/' && number == 0)
+        {
+            std::cout << "Cannot divide by zero. Try again.\n";
+        }
+        else
+        {
+            std::cout << "Invalid input. Try again.\n";
+        }
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
